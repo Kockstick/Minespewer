@@ -179,10 +179,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 288530061589673970, guid: 5a49b0d22a5f2b74f85a5cb09b0cce26, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 387e1aae079550944a5da1b682bb3fb9, type: 2}
     - target: {fileID: 1230272875637820075, guid: 5a49b0d22a5f2b74f85a5cb09b0cce26, type: 3}
       propertyPath: m_Name
       value: Bot
       objectReference: {fileID: 0}
+    - target: {fileID: 2963244786592622198, guid: 5a49b0d22a5f2b74f85a5cb09b0cce26, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f17cd1cd2406fcb4a9a89fb7976f2423, type: 2}
     - target: {fileID: 3051169921823394605, guid: 5a49b0d22a5f2b74f85a5cb09b0cce26, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -277,7 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec0be3d5bd8aac42a0441c60ae99e2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bot
+  level: 1
   score: 100
+  scoreToNextLvl: 0
+  points: 0
 --- !u!114 &4563775339944252482
 MonoBehaviour:
   m_ObjectHideFlags: 0

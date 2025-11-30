@@ -6926,7 +6926,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -6936,11 +6936,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 2
-      outSlope: 2
+      inSlope: 1.4234312
+      outSlope: 1.4234312
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.07359815
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -6969,7 +6969,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  speedAnimation: 0.1
+  speedAnimation: 1
 --- !u!1 &711189886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 13769423caf049d4c87c46bc8088b78b, type: 3}

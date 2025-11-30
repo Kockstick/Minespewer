@@ -14,6 +14,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private AnimationCurve shieldOpacity;
     [SerializeField] private float speedAnimation = 0.1f;
     private float time = 0;
+    private int maxHealth = 1;
 
     private Health health;
     private Transform camera;
@@ -23,14 +24,20 @@ public class Shield : MonoBehaviour
         health = GetComponentInParent<Health>();
         camera = Camera.main.transform;
 
-        sprite.transform.LookAt(camera);
-
         spriteMaterial = sprite.GetComponentInChildren<Renderer>().material;
         spriteColor = spriteMaterial.color;
         shieldeMaterial = shield.GetComponent<Renderer>().material;
         shieldColor = shieldeMaterial.color;
 
+        SetOpacity(0);
+
         health.OnDamage += OnDamage;
+        health.OnChangeMaxHealth += OnChangeMaxHealth;
+    }
+
+    private void OnChangeMaxHealth(int health)
+    {
+        maxHealth = health;
     }
 
     private void OnDamage(Bullet bullet)
@@ -41,6 +48,9 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
+        if (maxHealth <= 1)
+            return;
+
         time += speedAnimation * Time.deltaTime;
         if (time > 1)
             return;
@@ -49,6 +59,15 @@ public class Shield : MonoBehaviour
         spriteMaterial.color = spriteColor;
 
         shieldColor.a = shieldOpacity.Evaluate(time);
+        shieldeMaterial.color = shieldColor;
+    }
+
+    private void SetOpacity(float opacity)
+    {
+        spriteColor.a = opacity;
+        spriteMaterial.color = spriteColor;
+
+        shieldColor.a = opacity;
         shieldeMaterial.color = shieldColor;
     }
 }
