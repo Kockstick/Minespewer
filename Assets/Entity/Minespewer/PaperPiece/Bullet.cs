@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,6 +14,8 @@ public class Bullet : MonoBehaviour
 
     [HideInInspector] public int damage = 1;
     [HideInInspector] public Entity sender;
+
+    private bool isExploded = false;
 
     private float spawnTime;
 
@@ -33,11 +36,23 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (isExploded)
+            return;
+        isExploded = true;
+
         var hits = Physics.OverlapSphere(transform.position, explosionRadius, damageMask);
+        var hitHealth = new List<Health>();
+
         foreach (var h in hits)
         {
             var hp = h.GetComponentInParent<Health>();
-            if (hp) hp.SetDamage(this);
+            if (!hp)
+                continue;
+            if (hitHealth.Contains(hp))
+                continue;
+
+            hp.SetDamage(this);
+            hitHealth.Add(hp);
         }
 
         AddExplosion(groundExplosion);
