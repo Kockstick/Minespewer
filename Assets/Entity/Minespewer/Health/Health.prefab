@@ -146,8 +146,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3249811832746627374}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 6.4, y: 6.3, z: -5.5}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -168,6 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthProgress
   progressObj: {fileID: 1897376087661066100}
+  borderObj: {fileID: 7609996478011927172}
+  idleDelay: 4
+  fadeOutDuration: 1
+  fadeInDuration: 0.15
 --- !u!1 &7609996478011927172
 GameObject:
   m_ObjectHideFlags: 0
