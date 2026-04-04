@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float delayHeal = 1;
     private float timeLastHeal = 0;
 
-    public delegate void OnChangeHealth_EventHalder(int health);
+    public delegate void OnChangeHealth_EventHalder(int health, int? lastHealth = null);
     public OnChangeHealth_EventHalder OnChangeHealth;
     public OnChangeHealth_EventHalder OnChangeMaxHealth;
     public delegate void OnDamage_EventHalder(Bullet bullet);
@@ -41,8 +42,9 @@ public class Health : MonoBehaviour
             return;
 
         timeLastHeal = Time.time;
-        health = Mathf.Clamp(++health, 0, maxHealth);
-        if (OnChangeHealth != null) OnChangeHealth(health);
+        var newHealth = Mathf.Clamp(health + 1, 0, maxHealth);
+        if (OnChangeHealth != null) OnChangeHealth(newHealth, health);
+        health = newHealth;
         //Heal animation
     }
 
@@ -57,6 +59,7 @@ public class Health : MonoBehaviour
         timeLastGetDamage = Time.time;
         health -= bullet.damage;
         if (OnChangeHealth != null) OnChangeHealth(health);
+
         if (health <= 0)
             Die(bullet.sender);
     }
