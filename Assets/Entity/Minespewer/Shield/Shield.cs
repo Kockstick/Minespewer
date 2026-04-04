@@ -15,6 +15,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float speedAnimation = 0.1f;
     private float time = 0;
     private int maxHealth = 1;
+    private int currentHealth = 1;
 
     private Health health;
     private Transform camera;
@@ -33,6 +34,14 @@ public class Shield : MonoBehaviour
 
         health.OnDamage += OnDamage;
         health.OnChangeMaxHealth += OnChangeMaxHealth;
+        health.OnChangeHealth += OnChangeHealth;
+    }
+
+    private void OnChangeHealth(int health, int? lastHealth)
+    {
+        currentHealth = health;
+        if (health <= 1)
+            SetOpacity(0);
     }
 
     private void OnChangeMaxHealth(int health, int? lastHealth = null)
@@ -48,7 +57,7 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
-        if (maxHealth <= 1)
+        if (maxHealth <= 1 || currentHealth <= 1)
             return;
 
         time += speedAnimation * Time.deltaTime;
