@@ -35,7 +35,7 @@ public class Shield : MonoBehaviour
         health.OnChangeMaxHealth += OnChangeMaxHealth;
     }
 
-    private void OnChangeMaxHealth(int health)
+    private void OnChangeMaxHealth(int health, int? lastHealth = null)
     {
         maxHealth = health;
     }

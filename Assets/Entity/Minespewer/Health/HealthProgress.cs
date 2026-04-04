@@ -95,13 +95,13 @@ public class HealthProgress : MonoBehaviour
         }
     }
 
-    private void OnChangeMaxHealth(int health)
+    private void OnChangeMaxHealth(int health, int? lastHealth = null)
     {
         maxHealth = health;
         UpdateProgress();
     }
 
-    private void OnChangeHealth(int health)
+    private void OnChangeHealth(int health, int? lastHealth = null)
     {
         currentHealth = health;
         UpdateProgress();
