@@ -127,6 +127,8 @@ MonoBehaviour:
   impulseOnDamage: 20
   delayToHeal: 15
   delayHeal: 1
+  deathExplosionPrefab: {fileID: 2587419911129840480, guid: eb5a0a156c3299742b567c3e4a5c053c, type: 3}
+  corpsePrefab: {fileID: 6471637958653447970, guid: aa4ccd1e0a0117e4a9ae5bfdecf2226e, type: 3}
 --- !u!1 &5580565855263217016
 GameObject:
   m_ObjectHideFlags: 0

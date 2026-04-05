@@ -15,7 +15,7 @@ TagManager:
   - EntityCollider
   - Trigger
   - SightTarget
-  - 
+  - RenderOwerDefault
   - 
   - 
   - 

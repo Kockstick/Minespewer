@@ -16,6 +16,9 @@ public class Health : MonoBehaviour
     [SerializeField] private float delayHeal = 1;
     private float timeLastHeal = 0;
 
+    [SerializeField] private DeathExplosion deathExplosionPrefab;
+    [SerializeField] private GameObject corpsePrefab;
+
     public delegate void OnChangeHealth_EventHalder(int health, int? lastHealth = null);
     public OnChangeHealth_EventHalder OnChangeHealth;
     public OnChangeHealth_EventHalder OnChangeMaxHealth;
@@ -75,6 +78,8 @@ public class Health : MonoBehaviour
     private void Die(Entity killer)
     {
         killer.OnKill(entity);
+        Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
+        Instantiate(corpsePrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
